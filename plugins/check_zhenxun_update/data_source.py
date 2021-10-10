@@ -28,7 +28,7 @@ driver = nonebot.get_driver()
 release_url = "https://api.github.com/repos/meng-luo/mengluo_bot/releases/latest"
 
 _version_file = Path() / "__version__"
-zhenxun_latest_tar_gz = Path() / "zhenxun_latest_file.tar.gz"
+mengluo_latest_tar_gz = Path() / "mengluo_latest_file.tar.gz"
 temp_dir = Path() / "temp"
 backup_dir = Path() / "backup"
 
@@ -135,11 +135,11 @@ def _file_handle(latest_version: str) -> str:
     try:
         backup_dir.mkdir(exist_ok=True, parents=True)
         logger.info("开始解压梦落文件压缩包....")
-        tf = tarfile.open(zhenxun_latest_tar_gz)
+        tf = tarfile.open(mengluo_latest_tar_gz)
         tf.extractall(temp_dir)
         logger.info("解压梦落文件压缩包完成....")
-        zhenxun_latest_file = Path(temp_dir) / os.listdir(temp_dir)[0]
-        update_info_file = Path(zhenxun_latest_file) / "update_info.json"
+        mengluo_latest_file = Path(temp_dir) / os.listdir(temp_dir)[0]
+        update_info_file = Path(mengluo_latest_file) / "update_info.json"
         update_info = json.load(open(update_info_file, "r", encoding="utf8"))
         update_file = update_info["update_file"]
         add_file = update_info["add_file"]
@@ -162,7 +162,7 @@ def _file_handle(latest_version: str) -> str:
                         wf.write(data)
                 logger.info(f"已备份文件：{file}")
         for file in add_file + update_file:
-            new_file = Path(zhenxun_latest_file) / file
+            new_file = Path(mengluo_latest_file) / file
             old_file = Path() / file
             if old_file not in [config_file, config_path_file]:
                 if not old_file.exists() and new_file.exists():
@@ -182,8 +182,8 @@ def _file_handle(latest_version: str) -> str:
         tf.close()
     if temp_dir.exists():
         shutil.rmtree(temp_dir)
-    if zhenxun_latest_tar_gz.exists():
-        zhenxun_latest_tar_gz.unlink()
+    if mengluo_latest_tar_gz.exists():
+        mengluo_latest_tar_gz.unlink()
     local_update_info_file = Path() / "update_info.json"
     if local_update_info_file.exists():
         local_update_info_file.unlink()
@@ -212,7 +212,7 @@ async def download_latest_file(url_: str) -> bool:
             try:
                 async with session.get(url_, proxy=get_local_proxy()) as res:
                     if res.status == 200:
-                        async with aiofiles.open(zhenxun_latest_tar_gz, "wb") as f:
+                        async with aiofiles.open(mengluo_latest_tar_gz, "wb") as f:
                             await f.write(await res.read())
                             return True
             except (TimeoutError, ClientConnectorError):
