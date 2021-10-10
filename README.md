@@ -2,7 +2,7 @@
 
 # 梦落Bot
 ****
-此项目基于**[绪山真寻Bot](https://github.com/HibiKier/zhenxun_bot)** 修改，基于 Nonebot2 和 go-cqhttp 开发，以 postgresql 作为数据库的QQ群娱乐机器人
+此项目基于[**绪山真寻Bot**](https://github.com/HibiKier/zhenxun_bot) 修改，基于 Nonebot2 和 go-cqhttp 开发，以 postgresql 作为数据库的QQ群娱乐机器人
 ## 关于
 本项目是经过自身需求修改绪山真寻Bot后的项目，主体项目和绪山真寻Bot并未有大的变化
 本项目遵循GPL-V3开源协议，禁止商用
