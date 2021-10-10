@@ -28,7 +28,11 @@ __plugin_block_limit__ = {}
 __plugin_cd_limit__ = {
     'rst': '您冲的太快了，请稍后再冲.',
 }
+<<<<<<< HEAD
+__plugin_block_limit__ = {"rst": "你的色图正在路上，请稍等..."}
+=======
 
+>>>>>>> 3edbcbe... 第一个测试版
 
 export = export()
 export.description = '随机涩图'

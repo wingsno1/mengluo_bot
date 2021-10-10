@@ -1,0 +1,13 @@
+{
+    "update_file": [
+      "plugins",
+      "configs",
+      "models",
+      "services",
+      "utils",
+      "resources/ttf",
+      "bot.py"
+    ],
+    "add_file": [],
+    "delete_file": []
+}
