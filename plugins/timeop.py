@@ -22,7 +22,7 @@ def get_today():
     message = str(result['surplus'])
     return message
 
-@scheduler.scheduled_job('cron', hour='8',minute='00', id='zaobao')
+@scheduler.scheduled_job('cron', hour='8',minute='30', id='zaobao')
 async def zaobao():
     (bot,) = nonebot.get_bots().values()
     text = get_zaobao()
